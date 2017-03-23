@@ -1,4 +1,4 @@
-#define BALLS_MAX	1
+#define BALLS_MAX 1
 
 #define MIDDLE_X 240>>1
 #define MIDDLE_Y 256>>1
@@ -25,18 +25,18 @@ const unsigned char paddleMax[2] = {256 - (8 * 30), 224};
 
 //first player metasprite,  data structure explained in neslib.h
 const unsigned char paddle1[]={
-	0,  0, 0x46, 0,
-	8,  0, 0x47, 0,
-	16, 0, 0x48, 0,
-	128
+  0,  0, 0x46, 0,
+  8,  0, 0x47, 0,
+  16, 0, 0x48, 0,
+  128
 };
 
 //second player metasprite,  the only difference is palette number
 const unsigned char paddle2[]={
-	0,  0, 0x46, 1,
-	8,  0, 0x47, 1,
-	16, 0, 0x48, 1,
-	128
+  0,  0, 0x46, 1,
+  8,  0, 0x47, 1,
+  16, 0, 0x48, 1,
+  128
 };
 
 
@@ -66,35 +66,35 @@ void playPong(
   unsigned playing = 1;
 
 
-	//set initial coords
-	paddle_x[0]=108;
-	paddle_y[0]=10;
-	paddle_x[1]=168;
-	paddle_y[1]=222;
+  //set initial coords
+  paddle_x[0]=108;
+  paddle_y[0]=10;
+  paddle_x[1]=168;
+  paddle_y[1]=222;
 
-	//init other vars
+  //init other vars
   score[0] = 0;
   score[1] = 0;
-	touch=0;//collision flag
-	frame=0;//frame counter
+  touch=0;//collision flag
+  frame=0;//frame counter
 
   showScores();
 
   music_play(0);
 
-	//initialize balls parameters
-	for(i=0;i<BALLS_MAX;++i)
-	{
-		//starting coordinates
-		ball_x[i]=MIDDLE_X;
-		ball_y[i]=MIDDLE_Y;
+  //initialize balls parameters
+  for(i=0;i<BALLS_MAX;++i)
+  {
+    //starting coordinates
+    ball_x[i]=MIDDLE_X;
+    ball_y[i]=MIDDLE_Y;
 
-		//horizontal speed
-		ball_dx[i]=random();
+    //horizontal speed
+    ball_dx[i]=random();
 
-		//vertical speed
-		ball_dy[i]=BALL_Y_SPEED;
-	}
+    //vertical speed
+    ball_dy[i]=BALL_Y_SPEED;
+  }
 
   while(playing == 1) {
     ppu_wait_nmi();//wait for next TV frame

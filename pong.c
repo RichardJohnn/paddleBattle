@@ -17,20 +17,20 @@ static unsigned char frame;
 
 //palette for balls, there are four sets for different ball colors
 const unsigned char palSprites[20]={
-	0x0f,0x11,0x21,0x31, //icy blue
-	0x0f,0x05,0x26,0x36, //strawberry yogurt
-	0x0f,0x16,0x27,0x18, //rasta commando
-	0x0f,0x0a,0x19,0x3a, //grass stain
-	0x0f,0x00,0x10,0x20, //grey
+  0x0f,0x11,0x21,0x31, //icy blue
+  0x0f,0x05,0x26,0x36, //strawberry yogurt
+  0x0f,0x16,0x27,0x18, //rasta commando
+  0x0f,0x0a,0x19,0x3a, //grass stain
+  0x0f,0x00,0x10,0x20, //grey
 };
 
 void main(void)
 {
-	pal_spr(palSprites);//set palette for sprites
+  pal_spr(palSprites);//set palette for sprites
   pal_col(1,0x30);    //set white text color
 
-	//now the main loop
-	while(1) {
+  //now the main loop
+  while(1) {
     if (mode == PONG) {
       playPong(i, j, pad, spr, touch, frame);
       mode = 0;
